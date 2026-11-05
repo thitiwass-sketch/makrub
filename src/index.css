@@ -1,0 +1,133 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Prompt", "IBM Plex Sans Thai", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Prompt", "Plus Jakarta Sans", "IBM Plex Sans Thai", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "IBM Plex Sans Thai", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Font Design Variants (Switchable via UI or settings) */
+html[data-font="ibm"] {
+  --font-sans: "IBM Plex Sans Thai", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "IBM Plex Sans Thai", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+html[data-font="sarabun"] {
+  --font-sans: "Sarabun", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Sarabun", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+html[data-font="prompt"],
+html:not([data-font]) {
+  --font-sans: "Prompt", "IBM Plex Sans Thai", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Prompt", "Plus Jakarta Sans", "IBM Plex Sans Thai", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  :root {
+    --bg-page: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-surface-elevated: #f1f5f9;
+    --border-color: #cbd5e1;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+  }
+
+  html.dark {
+    --bg-page: #020617;
+    --bg-surface: #0f172a;
+    --bg-surface-elevated: #020617;
+    --border-color: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    scroll-behavior: smooth;
+  }
+
+  /* High-Contrast Light Mode Enhancements */
+  html:not(.dark) {
+    background-color: #f8fafc;
+    color: #0f172a;
+  }
+
+  html:not(.dark) .bg-slate-950 {
+    background-color: #ffffff;
+    color: #0f172a;
+  }
+
+  html:not(.dark) .bg-slate-900 {
+    background-color: #ffffff;
+    color: #0f172a;
+    border-color: #cbd5e1;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  html:not(.dark) .bg-slate-800 {
+    background-color: #f1f5f9;
+    color: #0f172a;
+  }
+
+  html:not(.dark) .text-slate-100,
+  html:not(.dark) .text-slate-200 {
+    color: #0f172a;
+  }
+
+  html:not(.dark) .text-slate-300,
+  html:not(.dark) .text-slate-400 {
+    color: #334155;
+  }
+
+  html:not(.dark) .border-slate-800,
+  html:not(.dark) .border-slate-800\/80,
+  html:not(.dark) .border-slate-800\/60,
+  html:not(.dark) .border-slate-900 {
+    border-color: #e2e8f0;
+  }
+
+  html:not(.dark) .divide-slate-800 > :not([hidden]) ~ :not([hidden]),
+  html:not(.dark) .divide-slate-800\/80 > :not([hidden]) ~ :not([hidden]) {
+    border-color: #e2e8f0;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  /* WCAG 2.1 Focus Visible Outline (3:1 contrast focus indicator) */
+  :focus-visible {
+    outline: 2px solid #d97706;
+    outline-offset: 2px;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Screen Reader Skip Link (WCAG 2.4.1) */
+.skip-to-content {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background-color: #fbbf24;
+  color: #020617;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  transition: top 0.2s ease-in-out;
+}
+
+.skip-to-content:focus {
+  top: 1rem;
+}
+

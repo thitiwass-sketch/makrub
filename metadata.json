@@ -1,0 +1,6 @@
+{
+  "name": "KrubNRRU — ระบบเช็คชื่อและวิเคราะห์การเรียน NRRU",
+  "description": "แอปพลิเคชันจัดการการเช็คชื่อนักศึกษาด้วย Dynamic QR Code ติดตามการวิเคราะห์ข้อมูลรายวิชาแบบเรียลไทม์ และบริหารจัดการการส่งโครงงานสำหรับอาจารย์และนักศึกษา มหาวิทยาลัยราชภัฏนครราชสีมา (NRRU)",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
